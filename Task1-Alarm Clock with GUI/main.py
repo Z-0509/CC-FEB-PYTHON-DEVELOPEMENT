@@ -30,15 +30,17 @@ def clock():
 def alarm():
         main_time = datetime.datetime.now().strftime("%H:%M %p")
         alarm_time = get_alarm_time_entry.get()
-        alarm_time1,alarm_time2 = alarm_time.split(' ')
-        alarm_hour, alarm_minutes = alarm_time1.split(':')
-        main_time1,main_time2 = main_time.split(' ')
-        main_hour1, main_minutes = main_time1.split(':')
-        if main_time2 == 'PM':
-                main_hour = str(int(main_hour1) - 12)
+
+        alarm_time1 = alarm_time.split(' ')
+        alarm_hour = alarm_time1[0].split(':')
+        main_time1= main_time.split(' ')
+        main_hour1 = main_time1[0].split(':')
+        if main_time1[1] == 'PM':
+                main_hour = str(int(main_hour1[0]) - 12)
         else:
-                main_hour = main_hour1
-        if int(alarm_hour) == int(main_hour) and int(alarm_minutes) == int(main_minutes) and main_time2 == alarm_time2:
+                main_hour = main_hour1[0]
+
+        if ((int(alarm_hour[0])) == (int(main_hour))) and ((int(alarm_hour[1])) == (int(main_hour1[1]))) and (main_time1[1] == alarm_time1[1]):
                 for i in range(3):
                         alarm_status_label.config(text='Time Is Up')
                         if platform.system() == 'Windows':
