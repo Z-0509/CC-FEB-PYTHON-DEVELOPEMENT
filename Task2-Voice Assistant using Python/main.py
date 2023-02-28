@@ -39,8 +39,8 @@ def takeCommand():
     #helps to recognise input audio
     with sr.Microphone() as source:
         print("Listening...")
-        r.pause_threshold=0.5
-        #written cuz if i take the gap of 1 sec the program doesnot assume that speeking is done that's why it is increased a bit
+        r.adjust_for_ambient_noise(source,duration=1)
+        #written to adjust the threshold and enviroment noise
         audio=r.listen(source)
 
     try:
@@ -118,8 +118,8 @@ if __name__ == "__main__" :
         #      for j in search(query, tld="co.in", num=10, stop=10, pause=2):
         #             print(j)
 
-        elif 'exit' in query:
-            speak("Goodbye Sir! have a good day")
+        elif 'bye' in query:
+            speak("Goodbye Maam! have a good day")
             break       
 
 
