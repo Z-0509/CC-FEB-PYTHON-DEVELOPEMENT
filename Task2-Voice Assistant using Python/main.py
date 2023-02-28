@@ -22,13 +22,13 @@ def wishMe():
     hour=int(datetime.datetime.now().hour)
     #will return hour in range of 0-24 and we typecasted it into int
     if hour>=0 and hour<12:
-        speak("Good Morning Sir!")
+        speak("Good Morning Maam!")
 
     elif hour>=12 and hour<18:
-        speak("Good Afternoon Sir!") 
+        speak("Good Afternoon Maam!") 
 
     else:
-        speak("Good Evening Sir!")               
+        speak("Good Evening Maam!")               
  
     speak("How can i help you?")
 
